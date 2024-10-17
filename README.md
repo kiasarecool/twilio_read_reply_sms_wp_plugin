@@ -1,5 +1,5 @@
 README
-To ensure everything works smoothly, I'll summarize the necessary steps and provide detailed paths and URLs. Please review and adjust as needed based on your actual directory structure and URLs.
+Please review and adjust as needed based on your actual directory structure and URLs.
 
 ### Directory and Path Setup
 
@@ -10,14 +10,14 @@ To ensure everything works smoothly, I'll summarize the necessary steps and prov
 ### Step-by-Step Instructions
 
 1. **Ensure the Twilio SDK is Installed**:
-   - The Twilio SDK should be installed via Composer. The `vendor` directory should be at the root of your website (i.e., `kcplantfactory.com/vendor`).
+   - The Twilio SDK should be installed via Composer. The `vendor` directory should be at the root of your website (i.e., `yoursite.com/vendor`).
    - If not already installed, run:
      ```bash
      composer require twilio/sdk
      ```
 
 2. **Create the PHP Files for Webhooks**:
-   - Place `forward_message.php` and `reply_message.php` in your `kcplantfactory.com` folder.
+   - Place `forward_message.php` and `reply_message.php` in your `yoursite.com` folder.
 
 **forward_message.php**:
 ```php
@@ -34,7 +34,7 @@ $from = $_POST['From'];
 $body = $_POST['Body'];
 
 $twilio->messages->create($to, [
-    'from' => '+18162590252',
+    'from' => '+18888888888',
     'body' => "From: $from\nMessage: $body"
 ]);
 ?>
@@ -54,7 +54,7 @@ $to = $_POST['To'];
 $body = $_POST['Body'];
 
 $twilio->messages->create($to, [
-    'from' => '+18162590252',
+    'from' => '+18888888888',
     'body' => $body
 ]);
 ?>
@@ -81,7 +81,7 @@ function fetch_twilio_messages() {
     $output = '<ul>';
     foreach ($messages as $message) {
         $output .= '<li><strong>From:</strong> ' . $message->from . ' - <strong>Message:</strong> ' . $message->body . '<br>';
-        $output .= '<form action="https://kcplantfactory.com/reply_message.php" method="post">';
+        $output .= '<form action="https://yoursite.com/reply_message.php" method="post">';
         $output .= '<input type="hidden" name="To" value="' . $message->from . '">';
         $output .= '<textarea name="Body" placeholder="Your Message"></textarea>';
         $output .= '<button type="submit">Send</button>';
@@ -116,7 +116,7 @@ add_action('wp_dashboard_setup', 'twilio_dashboard_widget');
 4. **Set Up the Webhooks in Twilio**:
    - Log in to your Twilio Console.
    - Navigate to your phone number settings.
-   - Set the webhook URL for incoming messages to `https://kcplantfactory.com/forward_message.php`.
+   - Set the webhook URL for incoming messages to `https://yoursite.com/forward_message.php`.
 
 ### Troubleshooting Tips:
 
