@@ -6,7 +6,7 @@ $sid = 'your_account_sid'; // Replace with your Twilio Account SID
 $token = 'your_auth_token'; // Replace with your Twilio Auth Token
 $twilio = new Client($sid, $token);
 
-$to = '+18168987207'; // Replace with your actual cell phone number
+$to = '+18181234567'; // Replace with your actual cell phone number
 $from = $_POST['From'];
 $body = $_POST['Body'];
 
