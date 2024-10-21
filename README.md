@@ -1,6 +1,3 @@
-README
-Please review and adjust as needed based on your actual directory structure and URLs.
-
 ### Directory and Path Setup
 
 1. **Vendor Path**: Ensure the path to the Twilio SDK autoload file is correct in your `functions.php`. Typically, if you installed the SDK via Composer, it will be in the `vendor` directory at the root of your website.
